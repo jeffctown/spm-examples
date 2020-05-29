@@ -1,3 +1,4 @@
+```
 +./generate_xcframework.sh:7> rm -rf Library.xcframework
 +./generate_xcframework.sh:8> rm -rf archives
 +./generate_xcframework.sh:11> PROJECT_NAME=ToolWithLibrary 
@@ -78,3 +79,4 @@ error: unable to resolve product type 'com.apple.product-type.tool' for platform
 
 ** ARCHIVE FAILED **
 
+```
