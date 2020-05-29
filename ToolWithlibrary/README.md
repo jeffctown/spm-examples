@@ -1,3 +1,81 @@
-# ToolWithlibrary
++./generate_xcframework.sh:7> rm -rf Library.xcframework
++./generate_xcframework.sh:8> rm -rf archives
++./generate_xcframework.sh:11> PROJECT_NAME=ToolWithLibrary 
++./generate_xcframework.sh:12> SCHEME_NAME=ToolWithlibrary-Package 
++./generate_xcframework.sh:13> FRAMEWORK_NAME=Library 
++./generate_xcframework.sh:17> swift package generate-xcodeproj
+generated: ./ToolWithlibrary.xcodeproj
++./generate_xcframework.sh:18> xcodebuild -project ToolWithLibrary.xcodeproj -list
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ToolWithLibrary.xcodeproj -list
 
-A description of this package.
+Information about project "ToolWithlibrary":
+    Targets:
+        Executable
+        Library
+        ToolWithlibraryPackageDescription
+        ToolWithlibraryPackageTests
+        ToolWithlibraryTests
+
+    Build Configurations:
+        Debug
+        Release
+
+    If no build configuration is specified and -scheme is not passed then "Release" is used.
+
+    Schemes:
+        Executable
+        ToolWithlibrary-Package
+
++./generate_xcframework.sh:20> set -o pipefail
++./generate_xcframework.sh:23> xcodebuild archive -project ToolWithLibrary.xcodeproj -scheme ToolWithLibrary-Package -destination 'generic/platform=iOS' -archivePath archives/ToolWithLibrary-iOS 'SKIP_INSTALL=NO' 'BUILD_LIBRARY_FOR_DISTRIBUTION=YES'
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild archive -project ToolWithLibrary.xcodeproj -scheme ToolWithLibrary-Package -destination generic/platform=iOS -archivePath archives/ToolWithLibrary-iOS SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+User defaults from command line:
+    IDEArchivePathOverride = /Users/jeff/spm-examples/ToolWithlibrary/archives/ToolWithLibrary-iOS
+
+Build settings from command line:
+    BUILD_LIBRARY_FOR_DISTRIBUTION = YES
+    SKIP_INSTALL = NO
+
+xcodebuild: error: The project named "ToolWithlibrary" does not contain a scheme named "ToolWithLibrary-Package". The "-list" option can be used to find the names of the schemes in the project.
++./generate_xcframework.sh:29> xcodebuild archive -project ToolWithLibrary.xcodeproj -scheme Executable -destination 'generic/platform=iOS' -archivePath archives/ToolWithLibrary-iOS 'SKIP_INSTALL=NO' 'BUILD_LIBRARY_FOR_DISTRIBUTION=YES'
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild archive -project ToolWithLibrary.xcodeproj -scheme Executable -destination generic/platform=iOS -archivePath archives/ToolWithLibrary-iOS SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+User defaults from command line:
+    IDEArchivePathOverride = /Users/jeff/spm-examples/ToolWithlibrary/archives/ToolWithLibrary-iOS
+
+Build settings from command line:
+    BUILD_LIBRARY_FOR_DISTRIBUTION = YES
+    SKIP_INSTALL = NO
+
+note: Using new build system
+note: Building targets in parallel
+note: Planning build
+note: Constructing build description
+error: unable to resolve product type 'com.apple.product-type.tool' for platform 'iphoneos' (in target 'Executable' from project 'ToolWithlibrary')
+error: unable to resolve product type 'com.apple.product-type.tool' for platform 'iphoneos' (in target 'Executable' from project 'ToolWithlibrary')
+2020-05-29 17:07:40.496 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:                                             REAL        USER         SYS  PAGEIN  /    OUT
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: Build operation                     :     1.1667r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build operation setup               :     0.0009r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:   | Builder creation                    :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build                               :     1.1653r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:   | Builder Executable                  :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:     | Build tasks                         :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build operation finishing           :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build operation cleanup             :     0.0002r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: Log emission                        :     0.0004r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:                                             REAL        USER         SYS  PAGEIN  /    OUT
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: Build operation                     :     1.1667r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build operation setup               :     0.0009r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:   | Builder creation                    :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build                               :     1.1653r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming:   | Build tasks (1 builders)            :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build operation finishing           :     0.0000r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: | Build operation cleanup             :     0.0002r     0.0000u     0.0000s                
+2020-05-29 17:07:40.497 xcodebuild[11757:1048015] [MT] IDEBuildOperationTiming: Log emission                        :     0.0003r     0.0000u     0.0000s                
+
+** ARCHIVE FAILED **
+
