@@ -1,0 +1,20 @@
+generated: ./LibraryOnly.xcodeproj
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project LibraryOnly.xcodeproj -list
+
+Information about project "LibraryOnly":
+    Targets:
+        LibraryOnly
+        LibraryOnlyPackageDescription
+        LibraryOnlyPackageTests
+        LibraryOnlyTests
+
+    Build Configurations:
+        Debug
+        Release
+
+    If no build configuration is specified and -scheme is not passed then "Release" is used.
+
+    Schemes:
+        LibraryOnly-Package
+
