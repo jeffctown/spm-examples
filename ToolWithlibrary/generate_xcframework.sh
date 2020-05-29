@@ -9,7 +9,6 @@ rm -rf archives
 
 # env vars
 PROJECT_NAME="ToolWithLibrary"
-SCHEME_NAME="ToolWithlibrary-Package"
 FRAMEWORK_NAME="Library"
 
 # Steps to Create XCFramework when we tag a new Package release
